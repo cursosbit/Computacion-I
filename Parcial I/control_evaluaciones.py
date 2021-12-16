@@ -1,11 +1,11 @@
 '''
-El departamento de computación lo contrata a usted para que desarrolle un programa que de los resultados del primer parcial 
-de un grupo de estudiantes, a la cual se le suministra la siguiente información: 
+El departamento de computación lo contrata a usted para que desarrolle un programa que, determine
+los resultados del primer parcial de un grupo de estudiantes, al programa se le suministra la siguiente información: 
 
 Nombre del estudiante, Hora y minutos de llegada a la prueba.
 
-Si logra entrar a la prueba:
-Hora y minutos de salida y calificación obtenida en la prueba.
+Y si logra entrar a la prueba, lea:
+La Hora y los minutos de salida, así como también la calificación obtenida en la prueba.
 
 Procese la información anterior y determine e imprima por consola:
 
@@ -14,35 +14,35 @@ Para cada estudiante:
 2)Si llegó temprano a la prueba indíquelo con un mensaje y cuánto tiempo espero para entrar a la misma en minutos.
 
 Para todos los estudiantes:
-3)Porcentaje de estudiantes que llegaron temprano con respecto al total que entraron a la prueba.
+3)El Porcentaje de estudiantes que llegaron temprano con respecto al total que entraron a la prueba.
 4)Cuántos estudiantes se procesaron antes de encontrar el primer estudiante que no entró la prueba.
-5)Promedio de las notas de los estudiantes que llegaron después de transcurridos 20 minutos de haber comenzado la prueba.
+5)El Promedio de las notas de los estudiantes que llegaron después de transcurridos 20 minutos de haber comenzado la prueba.
 
 Consideraciones:
 Una hora tiene 60 minutos.
 La prueba comienza a las 8:00 AM (480 minutos de día) y termina a las 10:00 AM (600 minutos de día)
 Todo estudiante que llegue a la 9:01 AM (541 minutos del día) o después no entra a la prueba.
 
-VARIABLES de entrada
-Nombre = "" 'Nombre del estudiante
+VARIABLES DE ENTRADA
+nombre = "" 'Nombre del estudiante
 hh_lleg, mm_lleg ' Hora y minutos de llegada a la prueba
 hh_sal, mm_sal 'Hora y minutos de salida
 Calificación 'calificación obtenida en la prueba
-R
+resp
 
 VARIABLES DE PROCESO
-Min_Tot_Ent, Min_Tot_Sal
-Tot_Est_Temp, Tot_Est_Ent
-Band
-Acum_Notas e '5)
-Est_Tar_20min  '5)
+min_tot_ent, min_tot_sal
+tot_est_temp, tot_est_ent
+band
+acum_notas e '5)
+est_tar_20min  '5)
 
 VARIABLES DE SALIDA
-Hor_Presen, Min_Presen '1) Si pudo entrar o no a la prueba indicándolo con un mensaje, en caso de entrar en cuánto tiempo desarrolló la prueba en horas y minutos
-Min_Esp  '2) Si llegó temprano a la prueba indíquelo con un mensaje y cuánto tiempo espero para entrar a la misma en minutos
-Porc_Est_Temp  '3) Porcentaje de estudiantes que llegaron temprano con respecto al total que entraron a la prueba.
-Prim_Est_Ent  '4) Cuántos estudiantes se procesaron antes de encontrar el primer estudiante que no entró la prueba
-Prom_Notas_20min  '5) Promedio de las notas de los estudiantes que llegaron después de transcurridos 20 minutos de haber comenzado la prueba
+hor_presen, min_presen '1) Si pudo entrar o no a la prueba indicándolo con un mensaje, en caso de entrar en cuánto tiempo desarrolló la prueba en horas y minutos
+min_esp  '2) Si llegó temprano a la prueba indíquelo con un mensaje y cuánto tiempo espero para entrar a la misma en minutos
+porc_est_temp  '3) Porcentaje de estudiantes que llegaron temprano con respecto al total que entraron a la prueba.
+prim_est_Ent  '4) Cuántos estudiantes se procesaron antes de encontrar el primer estudiante que no entró la prueba
+prom_notas_20min  '5) Promedio de las notas de los estudiantes que llegaron después de transcurridos 20 minutos de haber comenzado la prueba
 '''
 
 # INICIALIZACIÓN DE VARIABLES
@@ -64,22 +64,22 @@ while resp == 0:
 
     if min_tot_ent < 541: # El estudiante pudo entrar
         print("Ha llegado a tiempo, puede presentar")
-        hh_sal = int(input("Ingrese hora de salida: "))
-        mm_sal = int(input("Ingrese minuto de salida: "))
-        calificación = int(input("Ingrese Calificación: "))
+        hh_sal = int(input("Hora de salida: "))
+        mm_sal = int(input("Minuto de salida: "))
+        calificación = int(input("Calificación: "))
 
         tot_est_ent += 1
         min_tot_sal = hh_sal * 60 + mm_sal
 
         if min_tot_ent >= 480:
-            Hor_Presen = (min_tot_sal - min_tot_ent) // 60
-            Min_Presen = (min_tot_sal - min_tot_ent) % 60
+            hor_presen = (min_tot_sal - min_tot_ent) // 60
+            min_presen = (min_tot_sal - min_tot_ent) % 60
 
             if min_tot_ent > 500: # 5) 20 minutos después de comenzar la prueba
                 acum_notas += calificación
                 est_tar_20min += 1
 
-        else: # Llego temprano
+        else:  # Llego temprano
             hor_presen = (min_tot_sal - 480) // 60
             min_presen = (min_tot_sal - 480) % 60
 
