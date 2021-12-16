@@ -1,5 +1,7 @@
 '''
-El departamento de computación lo contrata a usted para que desarrolle una aplicación de consola VB2010 que de los resultados del primer parcial de un grupo de estudiantes, a la cual se le suministra la siguiente información: 
+El departamento de computación lo contrata a usted para que desarrolle un programa que de los resultados del primer parcial 
+de un grupo de estudiantes, a la cual se le suministra la siguiente información: 
+
 Nombre del estudiante, Hora y minutos de llegada a la prueba.
 
 Si logra entrar a la prueba:
@@ -44,14 +46,14 @@ Prom_Notas_20min  '5) Promedio de las notas de los estudiantes que llegaron desp
 '''
 
 # INICIALIZACIÓN DE VARIABLES
-r = 0
+resp= 0
 band = 0
 tot_est_temp = 0
 tot_est_ent = 0
 acum_notas = 0
 est_tar_20min = 0
 
-while r == 0:
+while resp == 0:
     # Lectura de datos
     nombre = input("Nombre del Estudiante: ")
     hh_lleg = int(input("Hora de llegada: "))
@@ -88,7 +90,7 @@ while r == 0:
 
         print("1) Realizó la prueba en " , hor_presen , " Horas y " , min_presen , " Minutos.")
 
-    else: #  El estudiante no pudo entrar
+    else:  # El estudiante no pudo entrar
 
         if band == 0:
             prim_est_ent = tot_est_ent  # 4) Guarda cuantos estudiantes se procesaron antes de encontrar el primer estudiante que no entró la prueba
@@ -96,7 +98,7 @@ while r == 0:
 
         print("Ha llegado tarde, no puede presentar")
 
-    r = int(input("Desea ingresar otro estudiante (si=0,no=l): "))
+    resp = int(input("Desea ingresar otro estudiante (si=0,no=l): "))
 
 if tot_est_ent != 0:
     porc_est_temp = tot_est_temp / tot_est_ent * 100
